@@ -32,6 +32,7 @@ public class UserController {
     @PostMapping("/sign-up")
     @Operation(summary = "Used for signing in user")
     public ResponseEntity<User> createUser(@Valid @RequestBody User user){
+        log.info("[UserController] : createUser : create user request for username : {}", user.getUsername());
         User newUser = userService.createUser(user);
         return new ResponseEntity<>(newUser,authService.authenticateUser(newUser),HttpStatus.CREATED);
     }
@@ -39,6 +40,7 @@ public class UserController {
     @PostMapping("/login")
     @Operation(summary = "Used for logging in user")
     public ResponseEntity<User> loginUser(@Valid @RequestBody User user){
+        log.info("[UserController] : loginUser : logging in user for username : {}", user.getUsername());
         User existingUser = userService.loginUser(user);
         return new ResponseEntity<>(existingUser,authService.authenticateUser(existingUser),HttpStatus.OK);
     }
@@ -46,6 +48,7 @@ public class UserController {
     @PostMapping("/logout")
     @Operation(summary = "Used for logging out user")
     public ResponseEntity<Void> logoutUser(@Valid @RequestBody UserToken userToken){
+        log.info("[UserController] : logoutUser : logging out user for username : {}", userToken.getUsername());
         authService.logout(userToken);
         return ResponseEntity.ok().build();
     }
