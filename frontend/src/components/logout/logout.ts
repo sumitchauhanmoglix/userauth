@@ -31,7 +31,7 @@ export class Logout {
         },
         error: (error) => {
           console.error('Logout Error:', error);
-          alert('Logout Failed');
+          this.router.navigate(['']);
         }
       });
   }
