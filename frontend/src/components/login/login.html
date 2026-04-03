@@ -1,0 +1,17 @@
+<div class="one">
+
+    <div class="two">Test</div>
+
+    <div class="three">
+        <form (submit)="$event.preventDefault()">
+            <input type="text" placeholder="Username" [(ngModel)]="username" name="username" required>
+            <br>
+            <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+            <button type="submit" (click) = "login()" >Login</button>
+        </form>
+    </div>
+    
+   <div class="four"><button type="button" (click)="signUp()">Sign Up</button></div>
+    
+
+</div>
