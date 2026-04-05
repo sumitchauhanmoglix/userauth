@@ -1,6 +1,6 @@
 
 .one{
-    height: 550px;
+    height: 500px;
     width: 400px;
     border-width: 8px 0 0 0 ;
     border-color: rgb(0, 100, 150);
@@ -40,7 +40,7 @@ input::placeholder {
 }
 
 form{
-    margin-top: 50px;
+    margin-top: 70px;
     margin-bottom: 10px;
 }
 
@@ -73,16 +73,18 @@ input:focus{
 }
 
 .four{
-    margin-top: 50px;
+    margin-top: 12px;
 }
 
 
 .four button{
+  padding: 10px;
   border : none;
   cursor: pointer;
   font-size: 12px;
   font-weight: 700;
-  width: 50px;
+  width: 100px;
+  margin-left: 315px;
   height: 20px;
   transition: background-color 0.3s, color 0.3s;
   background-color: transparent;
@@ -92,30 +94,4 @@ input:focus{
 
 .four button:hover {
   color: rgb(74, 195, 255);
-}
-
-
-.five button{
-  padding: 10px;
-  border : none;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
-  width: 200px;
-  margin-left: 230px;
-  height: 20px;
-  transition: background-color 0.3s, color 0.3s;
-  background-color: transparent;
-  color:  rgb(0, 100, 150);
-  border-radius: 5px;
-}
-
-.five button:hover {
-  color: rgb(74, 195, 255);
-}
-
-.message{
-  margin-left: 100px;
-  color: rgb(34, 34, 34);
-  font-size: 12px;
 }

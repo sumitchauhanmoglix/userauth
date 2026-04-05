@@ -51,9 +51,8 @@ public class UserServiceImpl implements UserService {
     public User loginUser(User user){
         log.info("[UserService] : login user : logging in user with username {}", user.getUsername());
         UserDao existingUser = userRepository.findByUsername(user.getUsername()).orElseThrow(() -> new BusinessException("Username does not exist or is incorrect, please try again.", HttpStatus.BAD_REQUEST));
-        String existingPassword = encryptionHelperService.decrypt(existingUser.getPassword());
 
-        if(existingPassword.equals(user.getPassword()) && existingUser.getRetryCount() > 0){
+        if(encryptionHelperService.matches(user.getPassword(), existingUser.getPassword()) && existingUser.getRetryCount() > 0){
             ConfigurationDao configurationDao = configurationService.getConfiguration(ConfigType.USER_CONFIG);
             existingUser.setRetryCount((int)configurationDao.getData().get(Constants.RETRY_COUNT));
             return UserMapper.mapUserDaoToDto(userRepository.save(existingUser));

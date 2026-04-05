@@ -5,46 +5,44 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router'; 
 
 @Component({
-  selector: 'login',
+  selector: 'signin',
   standalone: true,
   imports: [CommonModule, HttpClientModule, FormsModule],
-  templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  templateUrl: './signin.html',
+  styleUrls: ['./signin.css']
 })
-export class Login {
+export class Signin {
   username: string = '';
   password: string = '';
 
     constructor(private http: HttpClient, private router: Router) {}
 
   signUp() {
-    this.router.navigate(['/sign-in']);
-  }
-
-  forgotPassword(){
-    this.router.navigate(['/forgot-password']);
-  }
-
-  login(){
     const payload = {
       username: this.username,
       password: this.password
     };
 
-    this.http.post<any>('/api/v1/user/login', payload, { observe: 'response' })
+    this.http.post<any>('/api/v1/user/sign-up', payload, { observe: 'response' })
       .subscribe({
         next: (response) => {
-          console.log('Login Success:', response);
+          console.log('Sign Up Success:', response);
           const token = response.headers.get('X-Refresh-Token');
           if (token) {
             localStorage.setItem('X-Refresh-Token', token);
           }
           this.router.navigate(['/logout']);
+
         },
         error: (error) => {
-          console.error('Login Error:', error);
-          alert('Login Failed');
+          console.error('Sign Up Error:', error);
+          alert('Sign Up Failed');
         }
       });
+  }
+
+  login(){
+    this.router.navigate(['']);
+
   }
 }
