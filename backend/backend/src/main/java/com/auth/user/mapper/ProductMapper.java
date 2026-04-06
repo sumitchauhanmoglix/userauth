@@ -35,4 +35,11 @@ public class ProductMapper {
         return products;
     }
 
+    public static void updateProduct(ProductDao product, Product request){
+        product.setQuantity(request.getQuantity());
+        product.setName(request.getName());
+        product.setDescription(request.getDescription());
+        product.setUrl(request.getUrl());
+    }
+
 }
