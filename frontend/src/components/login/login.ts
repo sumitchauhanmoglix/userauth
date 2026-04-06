@@ -39,7 +39,7 @@ export class Login {
           if (token) {
             localStorage.setItem('X-Refresh-Token', token);
           }
-          this.router.navigate(['/logout']);
+          this.router.navigate(['/home']);
         },
         error: (error) => {
           console.error('Login Error:', error);

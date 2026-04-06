@@ -31,7 +31,7 @@ export class Signin {
           if (token) {
             localStorage.setItem('X-Refresh-Token', token);
           }
-          this.router.navigate(['/logout']);
+          this.router.navigate(['/home']);
 
         },
         error: (error) => {

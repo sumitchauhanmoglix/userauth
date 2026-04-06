@@ -1,0 +1,85 @@
+.one {
+  background-color: rgb(255, 255, 255);
+  height: 70px;
+  width: 100%; /* responsive */
+  border-radius: 10px;
+  margin: 30px 10px 10px 10px;
+  border-top: 5px solid rgb(0, 100, 150);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes left & right items to edges */
+  padding: 0 20px; /* add horizontal padding */
+  box-sizing: border-box;
+}
+
+/* Center search bar */
+.search-box {
+  flex: 1;               /* takes remaining space */
+  max-width: 600px;      /* optional max width */
+  margin: 0 20px;        /* space from left & right items */
+  padding: 10px 14px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(51, 51, 51);
+  outline: none;
+  color: rgb(51, 51, 51);
+}
+
+.search-box::placeholder {
+  color: rgb(34, 34, 34);
+  opacity: 1;
+}
+
+/* Left item */
+.one_one {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Right logout component (you can style inside your component) */
+logout {
+  cursor: pointer;
+}
+
+.one_one{
+    font-weight: 700;
+  font-size: 30px;
+  color: rgb(34, 34, 34);
+}
+
+.two{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 90vh;
+    width: 1500px;
+    margin: 10px;
+}
+
+.two_one{
+    margin: 10px;
+    height: 100px;
+    width: 300px;
+    border-radius: 10px;
+    border-width: 5px 0 0 0;
+    border-color: rgb(0, 100, 150);
+    border-style: solid;
+    background-color: rgb(255, 255, 255);
+}
+
+.two_two{
+    margin: 10px;
+     height: 200px;
+    width: 900px;
+}
+
+.two_three{
+    height: 200px;
+    width: 400px;
+    border-radius: 10px;
+    border-width: 5px 0 0 0;
+    border-color: rgb(0, 100, 150);
+    border-style: solid;
+    background-color: rgb(255, 255, 255);
+}
