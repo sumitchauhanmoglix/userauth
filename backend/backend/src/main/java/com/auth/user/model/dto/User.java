@@ -1,5 +1,6 @@
 package com.auth.user.model.dto;
 
+import com.auth.user.model.dto.validationGroups.UpdatePasswordGroup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotBlank;
@@ -22,4 +23,7 @@ public class User {
 
     @NotBlank(message = "Password cannot be blank")
     private String password;
+
+    @NotBlank(message = "Old password cannot be blank" , groups = UpdatePasswordGroup.class)
+    private String oldPassword;
 }

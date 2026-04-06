@@ -70,4 +70,18 @@ public class UserServiceImpl implements UserService {
             }
         }
     }
+
+    @Override
+    public User resetPassword(User user){
+        log.info("[UserService] : login user : reset password with username {}", user.getUsername());
+        UserDao existingUser = userRepository.findByUsername(user.getUsername()).orElseThrow(() -> new BusinessException("Username does not exist or is incorrect, please try again.", HttpStatus.BAD_REQUEST));
+
+        if(encryptionHelperService.matches(user.getOldPassword(), existingUser.getPassword())){
+            existingUser.setPassword(encryptionHelperService.encrypt(user.getPassword()));
+            userRepository.save(existingUser);
+            return  UserMapper.mapUserDaoToDto(existingUser);
+        }
+
+        throw new BusinessException("Password does not match, please enter correct password.", HttpStatus.BAD_REQUEST);
+    }
 }

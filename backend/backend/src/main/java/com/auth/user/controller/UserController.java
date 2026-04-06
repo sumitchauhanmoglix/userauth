@@ -2,14 +2,17 @@ package com.auth.user.controller;
 
 import com.auth.user.model.dto.User;
 import com.auth.user.model.dto.UserToken;
+import com.auth.user.model.dto.validationGroups.UpdatePasswordGroup;
 import com.auth.user.service.AuthService;
 import com.auth.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,5 +54,12 @@ public class UserController {
         log.info("[UserController] : logoutUser : logging out user for username : {}", userToken.getUsername());
         authService.logout(userToken);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/reset-password")
+    @Operation(summary = "Used to reset the password")
+    public ResponseEntity<User> resetPassword(@Validated({Default.class, UpdatePasswordGroup.class}) @RequestBody User user){
+        log.info("[UserController] : resetPassword : reset password for username : {}", user.getUsername());
+        return new ResponseEntity<>(userService.resetPassword(user), HttpStatus.OK);
     }
 }

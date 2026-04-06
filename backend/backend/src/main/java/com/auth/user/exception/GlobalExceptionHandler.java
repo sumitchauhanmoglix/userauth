@@ -12,13 +12,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponse> handleDtoException(IllegalArgumentException ex){
-        ErrorResponse errorResponse = ErrorResponse.builder().message(ex.getMessage()).build();
+        ErrorResponse errorResponse = ErrorResponse.builder().message("Invalid request. Please check the input and try again.").build();
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleMethodArgumentException(MethodArgumentNotValidException ex){
-        ErrorResponse errorResponse = ErrorResponse.builder().message(ex.getMessage()).build();
+        ErrorResponse errorResponse = ErrorResponse.builder().message("Invalid request. Please check the input and try again.").build();
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 

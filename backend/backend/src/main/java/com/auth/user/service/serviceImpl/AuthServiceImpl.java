@@ -41,6 +41,7 @@ public class AuthServiceImpl implements AuthService {
         httpHeaders.add(HeaderConstants.HEADER_ACCESS_TOKEN, jwtHelperService.generateToken(user.getUsername(), accessTokenExpirationTime));
         String refreshToken = jwtHelperService.generateToken(user.getUsername(), refreshTokenExpirationTime);
         httpHeaders.add(HeaderConstants.HEADER_REFRESH_TOKEN, refreshToken);
+        httpHeaders.add(HeaderConstants.HEADER_USER_ID, user.getId());
 
         RefreshTokenUserMappingDao refreshTokenUserMappingDao = new RefreshTokenUserMappingDao();
         refreshTokenUserMappingDao.setUsername(user.getUsername());
