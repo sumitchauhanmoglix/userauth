@@ -10,17 +10,17 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ErrorResponse> handleDtoException(IllegalArgumentException ex){
-        ErrorResponse errorResponse = ErrorResponse.builder().message("Invalid request. Please check the input and try again.").build();
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleMethodArgumentException(MethodArgumentNotValidException ex){
-        ErrorResponse errorResponse = ErrorResponse.builder().message("Invalid request. Please check the input and try again.").build();
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
-    }
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    public ResponseEntity<ErrorResponse> handleDtoException(IllegalArgumentException ex){
+//        ErrorResponse errorResponse = ErrorResponse.builder().message("Invalid request. Please check the input and try again.").build();
+//        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+//    }
+//
+//    @ExceptionHandler(MethodArgumentNotValidException.class)
+//    public ResponseEntity<ErrorResponse> handleMethodArgumentException(MethodArgumentNotValidException ex){
+//        ErrorResponse errorResponse = ErrorResponse.builder().message("Invalid request. Please check the input and try again.").build();
+//        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+//    }
 
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ErrorResponse> handleBusinessException(BusinessException ex){

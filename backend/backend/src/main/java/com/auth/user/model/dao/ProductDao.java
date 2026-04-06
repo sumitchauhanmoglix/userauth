@@ -14,7 +14,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "configurations")
+@Document(collection = "products")
 public class ProductDao {
 
     @Id

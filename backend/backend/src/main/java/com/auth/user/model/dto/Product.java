@@ -1,6 +1,5 @@
 package com.auth.user.model.dto;
 
-import com.auth.user.model.dto.validationGroups.UpdatePasswordGroup;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotBlank;
@@ -9,23 +8,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class User {
+public class Product {
     private String id;
 
-    @NotBlank(message = "Username cannot be blank")
-    private String username;
+    private int quantity = 1;
 
-    @NotBlank(message = "Password cannot be blank")
-    private String password;
+    @NotBlank(message = "Product name cannot be blank.")
+    private String name;
 
-    @NotBlank(message = "Old password cannot be blank" , groups = UpdatePasswordGroup.class)
-    private String oldPassword;
+    private String description;
+
+    @NotBlank(message = "Product URL cannot be blank.")
+    private String url;
+
+    private String userId;
 }
