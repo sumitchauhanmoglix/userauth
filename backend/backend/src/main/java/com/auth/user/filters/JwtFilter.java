@@ -29,6 +29,7 @@ public class JwtFilter extends OncePerRequestFilter {
             "/api/v1/user/login",
             "/api/v1/user/sign-up",
             "/api/v1/user/logout",
+            "/swagger-ui",
             "/api/auth/sign-up"
     );
 

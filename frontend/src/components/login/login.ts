@@ -35,9 +35,18 @@ export class Login {
       .subscribe({
         next: (response) => {
           console.log('Login Success:', response);
-          const token = response.headers.get('X-Refresh-Token');
-          if (token) {
-            localStorage.setItem('X-Refresh-Token', token);
+          const refreshToken = response.headers.get('X-Refresh-Token');
+          const accessToken = response.headers.get('X-Access-Token');
+          const userId = response.headers.get('X-User-Id');
+
+          if (refreshToken) {
+            localStorage.setItem('X-Refresh-Token',refreshToken );
+          }
+          if (accessToken) {
+            localStorage.setItem('X-Access-Token', accessToken);
+          }
+          if (userId) {
+            localStorage.setItem('X-User-Id', userId);
           }
           this.router.navigate(['/home']);
         },

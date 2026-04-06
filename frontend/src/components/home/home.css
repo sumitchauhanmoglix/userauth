@@ -37,7 +37,6 @@
   font-size: 18px;
 }
 
-/* Right logout component (you can style inside your component) */
 logout {
   cursor: pointer;
 }
@@ -51,9 +50,9 @@ logout {
 .two{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     height: 90vh;
     width: 1500px;
+    justify-content: center;
     margin: 10px;
 }
 
@@ -71,10 +70,11 @@ logout {
 .two_two{
     margin: 10px;
      height: 200px;
-    width: 900px;
+    width: 605px;
 }
 
 .two_three{
+    margin: 10px;
     height: 200px;
     width: 400px;
     border-radius: 10px;

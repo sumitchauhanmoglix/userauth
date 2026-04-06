@@ -11,5 +11,6 @@ export const routes: Routes = [
   { path: 'logout', loadComponent: () => import('../components/logout/logout').then(m => m.Logout) },
   { path: 'sign-in', loadComponent: () => import('../components/signin/signin').then(m => m.Signin) },
   { path: 'forgot-password', loadComponent: () => import('../components/forgotPassword/forgotPassword').then(m =>m.ForgotPassword)},
-  { path: 'home', loadComponent: () => import('../components/home/home').then(m =>m.Home)}
+  { path: 'home', loadComponent: () => import('../components/home/home').then(m =>m.Home)},
+  { path: 'test-item', loadComponent: () => import('../components/item/item').then(m =>m.Item)}
 ];

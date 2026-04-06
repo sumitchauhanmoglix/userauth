@@ -1,0 +1,39 @@
+.one{
+    background-color: white;
+    width: 600px;
+    height : 200px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-width: 5px 0 0 0;
+    border-color: rgb(0, 100, 150);
+    border-style: solid;
+    margin: 0 0 10px 0;
+    box-sizing: border-box;
+}
+
+.two img{
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.three{
+    height: 150px;
+    width : 400px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.three p {
+    color: rgb(34, 34, 34);
+
+}
+
+.one:hover{
+    border-color: rgb(74, 195, 255);
+    border-width: 5px 0 5px 0;
+    cursor: pointer;
+}
