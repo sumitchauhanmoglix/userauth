@@ -25,15 +25,16 @@ export class Logout {
       .subscribe({
         next: (response) => {
           console.log('Logout Success:', response);
-          localStorage.removeItem('X-Refresh-Token');
-          this.router.navigate(['']);
-
         },
         error: (error) => {
           console.error('Logout Error:', error);
-          this.router.navigate(['']);
         }
       });
+
+      localStorage.removeItem('X-Refresh-Token');
+      localStorage.removeItem('X-Access-Token');
+      localStorage.removeItem('X-User-Id');
+      this.router.navigate(['']);
   }
 
 }

@@ -3,6 +3,7 @@ package com.auth.user.service.serviceImpl;
 import com.auth.user.exception.BusinessException;
 import com.auth.user.mapper.ProductMapper;
 import com.auth.user.model.dao.ProductDao;
+import com.auth.user.model.dto.PageRequest;
 import com.auth.user.model.dto.Product;
 import com.auth.user.repository.ProductRepository;
 import com.auth.user.repository.customRepository.ProductCustomRepository;
@@ -35,8 +36,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProducts(){
-        List<ProductDao> productDaos = productRepository.findAll();
+    public List<Product> getAllProducts(PageRequest pageRequest){
+        List<ProductDao> productDaos = productCustomRepository.getAllProducts(pageRequest);
         return ProductMapper.toListDto(productDaos);
     }
 

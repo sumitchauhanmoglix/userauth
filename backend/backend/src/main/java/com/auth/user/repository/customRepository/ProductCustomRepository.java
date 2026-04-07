@@ -2,7 +2,7 @@ package com.auth.user.repository.customRepository;
 
 import com.auth.user.model.dao.ProductDao;
 import com.auth.user.model.dto.PageRequest;
-import com.auth.user.model.dto.Product;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -28,7 +28,22 @@ public class ProductCustomRepository {
         return mongoTemplate.find(query, ProductDao.class);
     }
 
-    public List<Product> getAllProducts(PageRequest pageRequest){
-        return null;
+    public List<ProductDao> getAllProducts(PageRequest pageRequest){
+        Query query = new Query();
+        setLimitAndOffset(query, pageRequest);
+        return mongoTemplate.find(query, ProductDao.class);
+    }
+
+    private void createOrderByClause(Query query, PageRequest pageRequest){
+        if(pageRequest.getOrder().equalsIgnoreCase(Sort.Direction.ASC.name())){
+            query.with(Sort.by(Sort.Direction.ASC, pageRequest.getSort()));
+        }else{
+            query.with(Sort.by(Sort.Direction.DESC, pageRequest.getSort()));
+        }
+    }
+
+    private void setLimitAndOffset(Query query, PageRequest pageRequest){
+        query.limit(pageRequest.getLimit());
+        query.skip(pageRequest.getOffset());
     }
 }

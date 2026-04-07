@@ -1,5 +1,6 @@
 package com.auth.user.controller;
 
+import com.auth.user.model.dto.PageRequest;
 import com.auth.user.model.dto.Product;
 import com.auth.user.service.ProductService;
 import com.auth.user.util.HeaderConstants;
@@ -33,8 +34,8 @@ public class ProductController {
 
     @GetMapping
     @Operation(summary = "Endpoint used to fetch all products.")
-    public ResponseEntity<List<Product>> getAllProducts(){
-        return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
+    public ResponseEntity<List<Product>> getAllProducts(PageRequest pageRequest){
+        return new ResponseEntity<>(productService.getAllProducts(pageRequest), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
