@@ -1,4 +1,4 @@
-<div class="one">
+<!-- <div class="one">
     <div class="one_one">
         Home
     </div>
@@ -10,14 +10,31 @@
     <div class="two_two">
         <app-item></app-item>
         <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
     </div>
     <div class="two_three"></div>
+</div> -->
+
+
+<div class="one">
+  <div class="one_one">
+    Home
+  </div>
+
+  <input type="text" placeholder="Search" class="search-box">
+  <logout></logout>
+</div>
+
+<div class="two">
+  <div class="two_one"></div>
+
+  <div class="two_two">
+    <app-item
+      *ngFor="let product of products"
+      [url]="product.url"
+      [name]="product.name"
+      [description]="product.description">
+    </app-item>
+  </div>
+
+  <div class="two_three"></div>
 </div>

@@ -1,6 +1,8 @@
 package com.auth.user.repository.customRepository;
 
 import com.auth.user.model.dao.ProductDao;
+import com.auth.user.model.dto.PageRequest;
+import com.auth.user.model.dto.Product;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -24,5 +26,9 @@ public class ProductCustomRepository {
         Query query = new Query(criteria);
 
         return mongoTemplate.find(query, ProductDao.class);
+    }
+
+    public List<Product> getAllProducts(PageRequest pageRequest){
+        return null;
     }
 }
