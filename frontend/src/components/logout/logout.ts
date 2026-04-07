@@ -16,6 +16,7 @@ export class Logout {
 
     constructor(private http: HttpClient, private router: Router) {}
 
+    // TODO :: add access token in the hader this endooint is not wokin
     logout() {
     const payload = {
       token: localStorage.getItem('X-Refresh-Token'),
