@@ -34,4 +34,7 @@ public class ProductDao {
 
     @Field("user_id")
     private String userId;
+
+    @Field("amount")
+    private double amount;
 }

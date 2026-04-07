@@ -14,6 +14,7 @@ public class ProductMapper {
                 .quantity(product.getQuantity())
                 .name(product.getName())
                 .description(product.getDescription())
+                .amount(product.getAmount())
                 .url(product.getUrl()).build();
     }
 
@@ -24,6 +25,7 @@ public class ProductMapper {
                 .name(productDao.getName())
                 .description(productDao.getDescription())
                 .url(productDao.getUrl())
+                .amount(productDao.getAmount())
                 .userId(productDao.getUserId()).build();
     }
 

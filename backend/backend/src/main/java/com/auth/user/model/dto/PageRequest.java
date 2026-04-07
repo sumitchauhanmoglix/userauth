@@ -17,4 +17,5 @@ public class PageRequest {
     private int offset = 0;
     private int limit = 5;
     private String sort;
+    private String order = "ASC";
 }

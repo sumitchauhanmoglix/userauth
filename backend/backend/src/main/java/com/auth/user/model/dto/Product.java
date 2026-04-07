@@ -28,4 +28,6 @@ public class Product {
     private String url;
 
     private String userId;
+
+    private double amount;
 }

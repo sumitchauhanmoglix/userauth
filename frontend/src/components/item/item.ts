@@ -14,6 +14,8 @@ export class Item {
   @Input() url!: string;
   @Input() name!: string;
   @Input() description!: string;
+  @Input() amount!: number;
+
 
   constructor(private router: Router) {
   }

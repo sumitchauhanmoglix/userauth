@@ -27,6 +27,9 @@ public class ProductServiceImpl implements ProductService {
     public Product createProduct(Product product, String userId){
         ProductDao productDao = ProductMapper.toDao(product);
         productDao.setUserId(userId);
+        if(product.getAmount() < 0){
+            throw new BusinessException("Enter valid amount of product.", HttpStatus.BAD_REQUEST);
+        }
         productDao = productRepository.save(productDao);
         return ProductMapper.toDto(productDao);
     }

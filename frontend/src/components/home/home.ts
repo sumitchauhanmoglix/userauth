@@ -12,7 +12,7 @@ import { Item } from "../item/item";
   styleUrls: ['./home.css'],
 })
 export class Home implements OnInit {
-  products: { url: string; name: string; description: string }[] = [];
+  products: { url: string; name: string; description: string; amount: number }[] = [];
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) {}
 
@@ -33,7 +33,8 @@ export class Home implements OnInit {
           this.products = data.map(p => ({
             url: p.url || '',
             name: p.name || '',
-            description: p.description || ''
+            description: p.description || '',
+            amount: p.amount || 0
           }));
           this.cd.markForCheck();
         },
