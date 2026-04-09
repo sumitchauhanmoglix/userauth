@@ -15,6 +15,7 @@ public class ProductMapper {
                 .name(product.getName())
                 .description(product.getDescription())
                 .amount(product.getAmount())
+                .selected(product.isSelected())
                 .url(product.getUrl()).build();
     }
 
@@ -26,6 +27,7 @@ public class ProductMapper {
                 .description(productDao.getDescription())
                 .url(productDao.getUrl())
                 .amount(productDao.getAmount())
+                .selected(productDao.isSelected())
                 .userId(productDao.getUserId()).build();
     }
 
@@ -35,6 +37,14 @@ public class ProductMapper {
             products.add(toDto(productDao));
         }
         return products;
+    }
+
+    public static List<ProductDao> toListDao(List<Product> products){
+        List<ProductDao> productDaos = new ArrayList<>();
+        for(Product product : products){
+            productDaos.add(toDao(product));
+        }
+        return productDaos;
     }
 
     public static void updateProduct(ProductDao product, Product request){

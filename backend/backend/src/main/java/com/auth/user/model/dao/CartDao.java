@@ -1,5 +1,7 @@
 package com.auth.user.model.dao;
 
+import com.auth.user.enums.CartStatus;
+import com.auth.user.model.dto.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,36 +10,24 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.Map;
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "products")
-public class ProductDao {
+@Document(collection = "carts")
+public class CartDao {
 
     @Id
     private String id;
 
-    @Field("quantity")
-    private int quantity;
+    @Field(name = "products")
+    private List<ProductDao> products;
 
-    @Field("name")
-    private String name;
+    @Field(name = "status")
+    private CartStatus status;
 
-    @Field("description")
-    private String description;
-
-    @Field("url")
-    private String url;
-
-    @Field("user_id")
+    @Field(name = "userId")
     private String userId;
-
-    @Field("amount")
-    private double amount;
-
-    @Field("selected")
-    private boolean selected;
 }
